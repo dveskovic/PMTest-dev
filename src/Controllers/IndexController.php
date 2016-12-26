@@ -40,7 +40,7 @@ class IndexController extends Controller
      * @param Models\WebstoreConfiguration $designConfig
      * @return Response
      */
-    public function execute(Twig $twig, Models\WebstoreConfiguration $designConfig):Response
+    public function execute(Twig $twig, Models\WebstoreConfiguration $designConfig):string 
     {
         $productIds	= $this->request->get('productIds');
 
