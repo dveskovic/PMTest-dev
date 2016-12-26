@@ -29,6 +29,7 @@ class ExportController extends Controller
 
     /**
      * @param Twig $twig
+     * @param Models\WebstoreConfiguration $designConfig
      * @return string
      */
     public function export(Twig $twig, Models\WebstoreConfiguration $designConfig):string

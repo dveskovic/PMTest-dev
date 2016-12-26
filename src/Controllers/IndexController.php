@@ -36,6 +36,7 @@ class IndexController extends Controller
 
     /**
      * @param Twig $twig
+     * @param Models\WebstoreConfiguration $designConfig
      * @return string
      */
     public function execute(Twig $twig, Models\WebstoreConfiguration $designConfig):string
