@@ -58,6 +58,6 @@ class IndexController extends Controller
 
         $test = ['test' => $productIds];
 
-        return $this->response->json(json_encode($test));
+        return $this->response.json_encode($test);
     }
 }

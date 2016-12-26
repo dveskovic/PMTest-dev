@@ -37,6 +37,6 @@ class ExportController extends Controller
 
         $test = ['test' => 'test'];
 
-        return $this->response->json(json_encode($test));
+        return $this->response.json_encode($test);
     }
 }
