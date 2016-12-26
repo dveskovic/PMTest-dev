@@ -6,7 +6,7 @@ use Plenty\Plugin\ConfigRepository;
 use Plenty\Plugin\Templates\Twig;
 use Plenty\Modules\Frontend\Services;
 use Plenty\Modules\System\Models;
-use Plenty\Plugin\Http\Response;
+use Symfony\Component\HttpFoundation\Response;
 
 use IO\Helper\TemplateContainer;
 /**

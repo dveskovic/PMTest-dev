@@ -7,9 +7,10 @@ use Plenty\Plugin\Templates\Twig;
 use Plenty\Modules\Frontend\Services;
 use Plenty\Modules\System\Models;
 use Plenty\Plugin\Http\Request;
-use Plenty\Plugin\Http\Response;
+use Symfony\Component\HttpFoundation\Response;
 use IO\Services\ItemService;
 use IO\Helper\TemplateContainer;
+// \Symfony\Component\HttpFoundation\
 /**
  * Class ContentController
  * @package PMTest\Controllers
