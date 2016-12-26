@@ -30,9 +30,9 @@ class ExportController extends Controller
     /**
      * @param Twig $twig
      * @param Models\WebstoreConfiguration $designConfig
-     * @return string
+     * @return Response
      */
-    public function export(Twig $twig, Models\WebstoreConfiguration $designConfig):string
+    public function export(Twig $twig, Models\WebstoreConfiguration $designConfig):Response
     {
 
         $test = ['test' => 'test'];
