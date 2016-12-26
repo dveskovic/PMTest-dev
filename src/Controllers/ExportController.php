@@ -2,13 +2,13 @@
 namespace PMTest\Controllers;
 
 use Plenty\Plugin\Controller;
-use Plenty\Plugin\ConfigRepository;
 use Plenty\Plugin\Templates\Twig;
 use Plenty\Modules\Frontend\Services;
 use Plenty\Modules\System\Models;
-use Symfony\Component\HttpFoundation\Response;
 
-use IO\Helper\TemplateContainer;
+use Plenty\Plugin\Http\Response;
+use Plenty\Plugin\Http\Request;
+
 /**
  * Class ContentController
  * @package PMTest\Controllers
@@ -19,24 +19,27 @@ class ExportController extends Controller
     /**
      * @var null|Response
      */
-    private $response = null;
+    private $response;
+
+    /**
+     * @var null|Response
+     */
+    private $request;
 
     public function __construct(
-        Response $response)
+        Response $response,
+        Request $request)
     {
         $this->response = $response;
+        $this->request = $request;
     }
 
     /**
-     * @param Twig $twig
-     * @param Models\WebstoreConfiguration $designConfig
-     * @return Response
      */
-    public function export(Twig $twig, Models\WebstoreConfiguration $designConfig):string
+    public function export()
     {
-
         $test = ['test' => 'test'];
 
-        return $this->response.json_encode($test);
+        return $this->response->json(json_encode($test));
     }
 }
