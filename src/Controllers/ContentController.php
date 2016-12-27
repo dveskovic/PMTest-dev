@@ -33,7 +33,7 @@ class ContentController extends Controller
 	 * @param Twig $twig
 	 * @return string
 	 */
-	public function sayHello(Twig $twig, Models\WebstoreConfiguration $designConfig):string
+	public function sayHello(Twig $twig):string
 	{
 
         $test = $this->container->getTemplateData();
