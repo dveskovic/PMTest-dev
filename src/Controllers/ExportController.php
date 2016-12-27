@@ -2,14 +2,13 @@
 namespace PMTest\Controllers;
 
 use Plenty\Plugin\Controller;
+use Plenty\Plugin\ConfigRepository;
 use Plenty\Plugin\Templates\Twig;
 use Plenty\Modules\Frontend\Services;
 use Plenty\Modules\System\Models;
+use Symfony\Component\HttpFoundation\Response;
 
-use Plenty\Plugin\Http\Response;
-use Plenty\Plugin\Http\Request;
-use IO\Services\ItemService;
-
+use IO\Helper\TemplateContainer;
 /**
  * Class ContentController
  * @package PMTest\Controllers
@@ -20,60 +19,24 @@ class ExportController extends Controller
     /**
      * @var null|Response
      */
-    private $response;
-
-    /**
-     * @var Response
-     */
-    private $request;
-
-    /**
-     * @var ItemService
-     */
-    private $itemService;
-
-    /**
-     * @var Models\webstoreConfiguration
-     */
-    private $storeConfiguration;
-
-
+    private $response = null;
 
     public function __construct(
-        Response $response,
-        Request $request,
-        ItemService $service,
-        Models\webstoreConfiguration $webstoreConfiguration)
+        Response $response)
     {
         $this->response = $response;
-        $this->request = $request;
-        $this->itemService = $service;
-        $this->storeConfiguration = $webstoreConfiguration;
     }
 
     /**
-     * Returning item details
-     *
+     * @param Twig $twig
+     * @param Models\WebstoreConfiguration $designConfig
+     * @return Response
      */
-    public function export()
+    public function export(Twig $twig, Models\WebstoreConfiguration $designConfig):string
     {
 
-        $productIds = $this->request->get('productIds');
-        $productIds = isset($productIds) ? explode(',', $productIds) : null;
-        $storeConf = $this->storeConfiguration->toArray();
+        $test = ['test' => 'test'];
 
-        foreach ($productIds as $productId) {
-            $product = $this->itemService->getItem($productId);
-            $products[] = [
-                'id' => $product->itemBase->id,
-                'link' => $this->itemService->getItemURL($product->itemBase->id),
-                'price' => $product->variationRetailPrice->price,
-                'image' => $this->itemService->getItemImage($product->itemBase->id),
-                'title' => $product->itemDescription->name1,
-            ];
-        }
-
-
-        return $this->response->json($products);
+        return $this->response.json_encode($test);
     }
 }

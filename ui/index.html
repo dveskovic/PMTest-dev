@@ -33,18 +33,16 @@
         };
     }());
     (function () {
-        document.addEventListener('DOMContentLoaded', function() {
-            var http = new XMLHttpRequest();
-            var url = "/pmtest/settings/";
-            http.open("GET", url, true);
+        var http = new XMLHttpRequest();
+        var url = "/pmtest/settings/";
+        http.open("GET", url, true);
 
-            http.onreadystatechange = function() {
-                if(http.readyState == 4 && http.status == 200) {
-                    alert(http.responseText);
-                }
+        http.onreadystatechange = function() {
+            if(http.readyState == 4 && http.status == 200) {
+                alert(http.responseText);
             }
-            http.send();
-        }, false);
+        }
+        http.send();
     }());
 </script>
 </html>
