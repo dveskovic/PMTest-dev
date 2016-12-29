@@ -48,8 +48,8 @@ class PMTestServiceProvider extends ServiceProvider
 //		}, 0);
 
 		$eventDispatcher->listen('tpl.category.container', function(TemplateContainer $container, $templateData) {
-			$templateData = $container->getTemplateData();
-			$container->withData("PMTest::PageDesign.PageDesign", $templateData['identifier']);
+//			$templateData = $container->getTemplateData();
+//			$container->withData("PMTest::PageDesign.PageDesign", $templateData['identifier']);
 //			$service->addJsFile("http://localhost/v1/1465/tracking.js");
 		}, 0);
 

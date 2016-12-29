@@ -18,18 +18,27 @@ class ContentController extends Controller
 
     const YOOCHOOSE_CDN_SCRIPT = '//event.yoochoose.net/cdn';
     const AMAZON_CDN_SCRIPT = '//cdn.yoochoose.net';
-    
-	/**
+
+
+    private $container;
+
+
+    public function __construct(TemplateContainer $container)
+    {
+        $this->container = $container;
+    }
+
+
+    /**
 	 * @param Twig $twig
 	 * @return string
 	 */
-	public function sayHello(Twig $twig, Models\WebstoreConfiguration $designConfig, TemplateContainer $contailer):string
+	public function sayHello(Twig $twig):string
 	{
 
-        $test = $contailer->getTemplateData();
-        $test2 = json_encode($test);
+        $test = $this->container->getTemplateData();
 
-		return $twig->render('PMTest::content.hello', ['test' => $test2]);
+		return $twig->render('PMTest::content.hello', ['test' => json_encode($test)]);
         
 	}
 
